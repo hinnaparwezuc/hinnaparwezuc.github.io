@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,6 @@
         <li>Python</li>
         <li>JavaScript</li>
         <li>SQL</li>
-        
     </ul>
 
     <h2>Contact Information</h2>
@@ -44,16 +44,32 @@
 
     <p id="email"></p>
 
+    <h2>Digital Clock</h2>
+
+    <p id="clock"></p>
+
+    <p>
+        <a href="waph.html">WAPH Course Page</a>
+    </p>
+
     <script>
         function showEmail() {
             document.getElementById("email").innerHTML =
                 "parwezhs@mail.uc.edu";
         }
+
+        function updateClock() {
+            const now = new Date();
+
+            document.getElementById("clock").innerHTML =
+                now.toLocaleTimeString();
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
     </script>
-    
-    <p>
-        <a href="waph.html">WAPH Course Page</a>
-    </p>
 
 </body>
 </html>
+```
