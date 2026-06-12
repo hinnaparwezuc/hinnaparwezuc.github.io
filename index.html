@@ -17,7 +17,9 @@
         Welcome to my professional website. I am a Computer Science student at the
         University of Cincinnati.
     </p>
-
+    
+    <p id="welcomeMessage"></p>
+    
     <h2>Education</h2>
     <p>
         University of Cincinnati<br>
@@ -52,24 +54,38 @@
         <a href="waph.html">WAPH Course Page</a>
     </p>
 
-    <script>
-        function showEmail() {
-            document.getElementById("email").innerHTML =
-                "parwezhs@mail.uc.edu";
+```html
+<script>
+    function showEmail() {
+        document.getElementById("email").innerHTML =
+            "parwezhs@mail.uc.edu";
+    }
+
+    function checkVisit() {
+        let lastVisit = localStorage.getItem("lastVisit");
+
+        if (lastVisit === null) {
+            document.getElementById("welcomeMessage").innerHTML =
+                "Welcome to my homepage for the first time!";
+        } else {
+            document.getElementById("welcomeMessage").innerHTML =
+                "Welcome back! Your last visit was " + lastVisit;
         }
 
-        function updateClock() {
-            const now = new Date();
+        localStorage.setItem("lastVisit", new Date().toString());
+    }
 
-            document.getElementById("clock").innerHTML =
-                now.toLocaleTimeString();
-        }
+    function updateClock() {
+        const now = new Date();
 
-        setInterval(updateClock, 1000);
+        document.getElementById("clock").innerHTML =
+            now.toLocaleTimeString();
+    }
 
-        updateClock();
-    </script>
+    checkVisit();
 
-</body>
-</html>
+    setInterval(updateClock, 1000);
+
+    updateClock();
+</script>
 ```
